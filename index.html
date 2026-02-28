@@ -259,87 +259,159 @@
             }
         }
     
-        /* Timeline Enhancement - Figure Popup */
-        .timeline-figures {
-            margin-top: 0.8rem;
+        /* Filter Styles */
+        .filter-container {
+            background: white;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid #ddd;
+            background: white;
+            color: #555;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .reset-button {
+            display: block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .reset-button:hover {
+            background: #667eea;
+        }
+
+        .timeline-display {
+            padding: 1rem;
+        }
+
+        .timeline-display h3 {
+            color: #667eea;
+            margin: 1rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .article-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            animation: slideIn 0.3s;
+        }
+
+        .article-card.visible {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-top: 1rem;
         }
 
-        .figure-tag {
+        .tag {
             display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.6rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 12px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            font-weight: 500;
         }
 
-        .figure-tag:hover {
-            background: #764ba2;
-            transform: scale(1.05);
-        }
-
-        /* Modal/Popup */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            animation: fadeIn 0.3s;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        .tag-knowledge {
+            background: #e8e8ff;
             color: #667eea;
+            border: 1px solid #667eea;
         }
 
-        .modal-close:hover {
+        .tag-knowledge:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .tag-figure {
+            background: #ffe8e8;
             color: #764ba2;
+            border: 1px solid #764ba2;
         }
 
-        .modal-title {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .modal-text {
-            color: #555;
-            line-height: 1.6;
-            font-size: 0.95rem;
+        .tag-figure:hover {
+            background: #764ba2;
+            color: white;
         }
 </style>
 </head>
@@ -526,7 +598,7 @@
     <div class="card">
         <h3>📚 商高定理與勾股定理：中西之美</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('商高')">商高</span><span class="figure-tag" onclick="showFigureModal('畢達哥拉斯')">畢達哥拉斯</span><span class="figure-tag" onclick="showFigureModal('歐幾里得')">歐幾里得</span></div>
+        <p><strong>人物：</strong>商高, 畢達哥拉斯, 歐幾里得</p>
         <div class='card'><h3>🔍 商高定理與勾股定理</h3><p>直角三角形的三邊滿足 a² + b² = c²。中國謂之「商高定理」，西方稱「勾股定理」。</p><h4>🏯 中國：商高定理</h4><p>《周髀算經》記：「勾三股四弦五」。商高（約前 1100 年）傳為首先發現此關係之人。中國稱直角邊為「勾」「股」，斜邊為「弦」。</p><h4>🏛️ 西方：勾股定理</h4><p>畢達哥拉斯（前 500 年）被認為首先証明此定理。歐幾里得《幾何原本》第 I 卷載最著名之証明。</p><h4>📊 中西對比</h4><ul><li><strong>中國：</strong>注重計算應用</li><li><strong>西方：</strong>注重邏輯証明</li><li><strong>共通：</strong>皆認此定理之重要</li></ul><h4>⚡ 影響</h4><p>奠定幾何學基礎，開啟三角學之門。測量、建築、天文，無所不用其極。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 09:30 UTC</p>
     </div>
@@ -535,7 +607,7 @@
     <div class="card">
         <h3>📚 圓周率之謎：阿基米德與割圓法</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('阿基米德')">阿基米德</span><span class="figure-tag" onclick="showFigureModal('劉徽')">劉徽</span><span class="figure-tag" onclick="showFigureModal('祖沖之')">祖沖之</span></div>
+        <p><strong>人物：</strong>阿基米德, 劉徽, 祖沖之</p>
         <div class='card'><h3>🔍 圓周率的追求</h3><p>π 是圓周長與直徑之比。自古以來，數學家追求其精確值，卻發現此數永遠無盡。</p><h4>🏛️ 阿基米德的邊界法</h4><p>古希臘數學家阿基米德（前 287-212 年）使用內接和外接正多邊形，逐步逼近圓周。得出 3 1/7 < π < 3 10/71，即 π ≈ 3.14。</p><h4>🏯 劉徽的割圓法</h4><p>中國數學家劉徽（220-280 年）創造「割圓法」。用正多邊形割圓，邊數越多，越逼近圓周。計算出 π ≈ 3.14159。</p><h4>🌟 祖沖之的不朽成就</h4><p>祖沖之（429-500 年）精算 π 在 3.1415926 至 3.1415927 之間，此精度保持 1000 年無人超越！且得兩分數近似：22/7 和 355/113。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 10:00 UTC</p>
     </div>
@@ -544,7 +616,7 @@
     <div class="card">
         <h3>📚 代數學的起源：九章算術 vs 花拉子米</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('張蒼')">張蒼</span><span class="figure-tag" onclick="showFigureModal('花拉子米')">花拉子米</span><span class="figure-tag" onclick="showFigureModal('卡爾達諾')">卡爾達諾</span></div>
+        <p><strong>人物：</strong>張蒼, 花拉子米, 卡爾達諾</p>
         <div class='card'><h3>🔍 方程與未知數</h3><p>代數學關乎用符號表示未知數，並求解方程。東西方古人各自探索此藝。</p><h4>🏯 中國的九章算術</h4><p>《九章算術》（約前 200 年編成）乃中國古代數學之集大成。其中「方程」一章論述線性方程組之求解，已用籌算（早期之計數方法）進行消元。</p><h4>🌙 阿拉伯的花拉子米</h4><p>花拉子米（約 780-850 年）著《代數學簡論》，標題中 Al-Jabr（合併）一詞遂成「代數」（Algebra）之源。此書系統化論述一次、二次方程之解法。</p><h4>📊 東西異同</h4><ul><li><strong>中國：</strong>用算盤與籌算，實踐導向</li><li><strong>阿拉伯：</strong>用文字敍述與幾何，理論導向</li><li><strong>西方：</strong>後來融合兩者，創造符號代數</li></ul></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 10:30 UTC</p>
     </div>
@@ -553,7 +625,7 @@
     <div class="card">
         <h3>📚 幾何學的分岔：歐幾里得與實用之學</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('歐幾里得')">歐幾里得</span><span class="figure-tag" onclick="showFigureModal('劉徽')">劉徽</span><span class="figure-tag" onclick="showFigureModal('海倫')">海倫</span></div>
+        <p><strong>人物：</strong>歐幾里得, 劉徽, 海倫</p>
         <div class='card'><h3>🔍 圖形與空間</h3><p>幾何學研究圖形、面積、體積。東西方發展路徑差異大，卻殊途同歸。</p><h4>🏛️ 歐幾里得的公理化</h4><p>古希臘數學家歐幾里得（約前 300 年）編著《幾何原本》，從 5 條公理出發，用邏輯推演演繹出 465 條命題。此法成為數學之典範——從假設到結論，環環相扣。</p><h4>🏯 中國的實用幾何</h4><p>中國幾何學更重實踐應用。如何測量田地、修建堤壩、製造器具？《九章算術》論述各類圖形面積與體積計算。不求証明，重求答案。</p><h4>📊 兩條路的特點</h4><ul><li><strong>歐幾里得：</strong>嚴謹、抽象、演繹</li><li><strong>中國：</strong>直觀、具體、歸納</li><li><strong>現代：</strong>兩者融合，相輔相成</li></ul></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 11:00 UTC</p>
     </div>
@@ -562,7 +634,7 @@
     <div class="card">
         <h3>📚 古代計算工具：算盤與籌算的智慧</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('暫無具體人物')">暫無具體人物</span><span class="figure-tag" onclick="showFigureModal('計算工具發明者')">計算工具發明者</span></div>
+        <p><strong>人物：</strong>暫無具體人物, 計算工具發明者</p>
         <div class='card'><h3>🔍 心算之輔</h3><p>未有紙筆之時，人類如何進行複雜計算？各文明創造工具，以輔助心算。</p><h4>🏯 中國的籌算與算盤</h4><p>籌算（約前 500 年出現）乃竹籤排列成數字。後來演變為算盤（abacus），珠子串成，滑動即可計算。算盤精妙之設計，千年不衰。至今東亞仍有人精於珠算。</p><h4>🏛️ 西方的羅馬數字</h4><p>I, V, X, L, C, D, M 雖易辨識，但計算困難。故古羅馬人多用手指計算或塵盤（撒沙可塗寫）。後來採用阿拉伯數字後，計算效率大增。</p><h4>⚡ 工具的力量</h4><p>工具非純輔助，乃能改變思維方式。算盤之使用，催生籌算與珠算之技藝，並影響數字系統之設計。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 11:30 UTC</p>
     </div>
@@ -571,7 +643,7 @@
     <div class="card">
         <h3>📚 零的發明：東方的偉大禮物</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('印度數學家')">印度數學家</span><span class="figure-tag" onclick="showFigureModal('阿拉伯傳播者')">阿拉伯傳播者</span><span class="figure-tag" onclick="showFigureModal('歐洲接受者')">歐洲接受者</span></div>
+        <p><strong>人物：</strong>印度數學家, 阿拉伯傳播者, 歐洲接受者</p>
         <div class='card'><h3>🔍 無即有</h3><p>零非自明之物。人類用長期方悟：無物可用一符號表示，並參與計算。</p><h4>🌙 印度的零</h4><p>印度數學家（約 5 世紀）首次將零視為數字，納入計算系統。此乃劃時代之進步——使十進制記數法完整而高效。</p><h4>🏯 中國的空位</h4><p>中國古人在籌算中用空位表示零，但未將零視作獨立數字。至傳入印度概念後，方得完全理解。</p><h4>🌙 阿拉伯的傳播</h4><p>花拉子米與其他阿拉伯數學家採納印度零的概念，並傳入歐洲。歐洲教會曾反對零，認為違背自然。然終究接納。</p><h4>⚡ 零的力量</h4><p>零使數字系統更完整、計算更便利。無零，則無現代科技。此東方數學之大禮。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 12:00 UTC</p>
     </div>
@@ -580,7 +652,7 @@
     <div class="card">
         <h3>📚 負數的認識：從違背直覺到接納真理</h3>
         <p><strong>分類：</strong>古代數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('劉徽')">劉徽</span><span class="figure-tag" onclick="showFigureModal('卡爾達諾')">卡爾達諾</span><span class="figure-tag" onclick="showFigureModal('邦貝利')">邦貝利</span></div>
+        <p><strong>人物：</strong>劉徽, 卡爾達諾, 邦貝利</p>
         <div class='card'><h3>🔍 小於零</h3><p>負數挑戰直覺——如何擁有負個蘋果？然數學要求超越現實。</p><h4>🏯 中國的赤黑計數</h4><p>中國古人用不同顏色或形狀表示正負。劉徽（220-280 年）明確定義負數，並建立運算法則。用籌算表示：紅籌為正，黑籌為負。</p><h4>🏛️ 西方的遲疑</h4><p>古希臘與古羅馬未真正接納負數。中世紀歐洲視負數為「不可能之數」。直至 16 世紀，卡爾達諾與邦貝利方開始認真對待。</p><h4>📊 認識之進程</h4><ul><li><strong>古代中國：</strong>實踐應用，已懂負數</li><li><strong>古代西方：</strong>理論抵觸，拒絕負數</li><li><strong>中世紀：</strong>緩慢接納，漸次融合</li><li><strong>現代：</strong>負數視作自然，基礎數學</li></ul><h4>⚡ 啟示</h4><p>數學發展非線性。有時東方領先，有時西方超越。真理最終必勝。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 12:30 UTC</p>
     </div>
@@ -589,7 +661,7 @@
     <div class="card">
         <h3>📚 複數的探索：從被否認到被承認</h3>
         <p><strong>分類：</strong>古代與中世紀數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('卡爾達諾')">卡爾達諾</span><span class="figure-tag" onclick="showFigureModal('邦貝利')">邦貝利</span><span class="figure-tag" onclick="showFigureModal('高斯')">高斯</span></div>
+        <p><strong>人物：</strong>卡爾達諾, 邦貝利, 高斯</p>
         <div class='card'><h3>🔍 不可能的數</h3><p>複數源於負數平方根。√(-1) 無實數解，故稱「虛數」。人類用千年，方承認其存在。</p><h4>🌙 卡爾達諾的困惑</h4><p>16 世紀義大利數學家卡爾達諾（1501-1576）解三次方程時首遇複數。他不知如何處理 √(-1)，稱之為「虛數」。</p><h4>🏛️ 邦貝利的突破</h4><p>邦貝利（1526-1572）大膽設定 √(-1) 之運算法則，並發現複數之間可進行加減乘除。虛數非虛，乃實數之擴展。</p><h4>🌟 高斯的承認</h4><p>高斯（1777-1855）將複數表示為平面上之點（a + bi 對應 (a,b)），賦予幾何意義。複數遂成數學之正統。</p><h4>⚡ 意義</h4><p>複數使代數方程總有解，物理波動描述更優雅。數學系統每次擴展，都帶來新的力量。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 13:00 UTC</p>
     </div>
@@ -598,7 +670,7 @@
     <div class="card">
         <h3>📚 伊斯蘭黃金時代的數學</h3>
         <p><strong>分類：</strong>中世紀數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('花拉子米')">花拉子米</span><span class="figure-tag" onclick="showFigureModal('花拉子密')">花拉子密</span><span class="figure-tag" onclick="showFigureModal('歐幾里得')">歐幾里得</span></div>
+        <p><strong>人物：</strong>花拉子米, 花拉子密, 歐幾里得</p>
         <div class='card'><h3>🌙 東方與西方的對話</h3><p>公元 8-15 世紀，阿拉伯與伊斯蘭世界成為數學中心。希臘、印度、中國的知識在此匯聚、發展、傳播。</p><h4>🌙 花拉子米的代數學</h4><p>穆罕默德·阿爾-花拉子米（約 780-850 年）著《代數學簡論》，系統整理一次、二次方程解法。「Al-Jabr」（合併）一詞遂成現代「Algebra」（代數）之源。</p><h4>📚 知識的薈萃</h4><p>伊斯蘭學者不僅保存希臘古籍，更翻譯印度數學，採納東方算法。巴格達圖書館匯萬卷，成為人類智慧之殿堂。</p><h4>⚡ 東西方的橋樑</h4><p>伊斯蘭數學將東方實用與西方理論相融，又將此融合傳回歐洲。此乃世界文明之交融。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 13:30 UTC</p>
     </div>
@@ -607,7 +679,7 @@
     <div class="card">
         <h3>📚 阿拉伯數字與算法的傳入</h3>
         <p><strong>分類：</strong>中世紀數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('斐波那契')">斐波那契</span><span class="figure-tag" onclick="showFigureModal('花拉子米')">花拉子米</span><span class="figure-tag" onclick="showFigureModal('李奧納多')">李奧納多</span></div>
+        <p><strong>人物：</strong>斐波那契, 花拉子米, 李奧納多</p>
         <div class='card'><h3>🔢 數字革命</h3><p>羅馬數字繁複難算。印度人發明十進制與零，阿拉伯人傳播此法。13 世紀，歐洲終於接納這「異教數字」。</p><h4>🏛️ 羅馬數字的困境</h4><p>I, V, X, L, C, D, M 易於辨認，卻難以計算。如何用羅馬數字做複雜乘除？商人與學者困擾已久。</p><h4>🔢 阿拉伯數字的勝利</h4><p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9 加上位值制（十進制），計算變得優雅高效。阿拉伯人與印度人的貢獻，改變了世界。</p><h4>📖 斐波那契的推廣</h4><p>13 世紀義大利商人李奧納多·斐波那契著《算盤書》，將阿拉伯數字與方法傳入歐洲。雖遭教會反對，終究勢不可擋。</p><h4>⚡ 演算法之名</h4><p>「Algorithm」一詞源自「Al-Khwarizmi」（花拉子米）。每一次計算，皆銘記此人之功績。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 14:00 UTC</p>
     </div>
@@ -616,7 +688,7 @@
     <div class="card">
         <h3>📚 代數學的進化：從文言到符號</h3>
         <p><strong>分類：</strong>文藝復興數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('卡爾達諾')">卡爾達諾</span><span class="figure-tag" onclick="showFigureModal('邦貝利')">邦貝利</span><span class="figure-tag" onclick="showFigureModal('韋達')">韋達</span></div>
+        <p><strong>人物：</strong>卡爾達諾, 邦貝利, 韋達</p>
         <div class='card'><h3>📝 符號的力量</h3><p>從用文字敍述方程，到用符號表示未知數，數學經歷了革命。符號使思維更清晰，計算更便捷。</p><h4>🌙 阿拉伯的文言代數</h4><p>花拉子米用文字完整敍述方程與解法。「置某物……若干……」，冗長而不便。</p><h4>🏛️ 西方的符號化</h4><p>文藝復興時期，數學家逐漸採用符號。韋達（François Viète, 1540-1603）首次系統使用字母表示未知數與已知量，奠定現代代數之基礎。</p><h4>📊 符號化的優勢</h4><ul><li>簡潔明快</li><li>便於操作</li><li>易於推廣</li><li>促進新發現</li></ul><h4>⚡ 從 Al-Jabr 到 Algebra</h4><p>符號代數使多項式運算、方程求解變得系統化。此乃數學現代化之關鍵。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 14:30 UTC</p>
     </div>
@@ -625,7 +697,7 @@
     <div class="card">
         <h3>📚 三角函數的誕生：從天文到數學</h3>
         <p><strong>分類：</strong>文藝復興數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('喜帕恰斯')">喜帕恰斯</span><span class="figure-tag" onclick="showFigureModal('第谷')">第谷</span><span class="figure-tag" onclick="showFigureModal('納皮爾')">納皮爾</span></div>
+        <p><strong>人物：</strong>喜帕恰斯, 第谷, 納皮爾</p>
         <div class='card'><h3>📐 角度與弦長</h3><p>三角函數源於天文觀測。古人需計算星位與角度，遂發展三角學。</p><h4>🏛️ 古希臘的弦表</h4><p>希臘天文學家喜帕恰斯（約前 190-120）編製弦表，助於計算圓周角。此乃三角學之濫觴。</p><h4>🌙 伊斯蘭的正弦函數</h4><p>阿拉伯數學家採用正弦（sine）而非弦（chord），更簡潔。三角學遂成熟。</p><h4>🔭 天文學的需求</h4><p>16 世紀天文學家第谷進行精密觀測，需要高精度三角表。數學家遂發展更精妙的三角函數與恆等式。</p><h4>⚡ 納皮爾的對數</h4><p>納皮爾（1550-1617）發明對數與對數表，使三角計算大簡化。log(sin θ) 與 log(cos θ) 之應用，使天文計算得以加速。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 15:00 UTC</p>
     </div>
@@ -634,7 +706,7 @@
     <div class="card">
         <h3>📚 對數與計算尺的奇蹟</h3>
         <p><strong>分類：</strong>文藝復興數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('納皮爾')">納皮爾</span><span class="figure-tag" onclick="showFigureModal('歐特雷德')">歐特雷德</span><span class="figure-tag" onclick="showFigureModal('帕斯卡')">帕斯卡</span></div>
+        <p><strong>人物：</strong>納皮爾, 歐特雷德, 帕斯卡</p>
         <div class='card'><h3>🧮 乘法變加法</h3><p>對數一出，天下驚喜。複雜乘除化為簡單加減，計算尺應運而生。三百年內，科技進步加速。</p><h4>📊 納皮爾的對數</h4><p>納皮爾（John Napier, 1550-1617）發現 log(a × b) = log(a) + log(b)。此簡單性質隱含力量無窮。</p><h4>🧮 對數表</h4><p>經由編製對數表，複雜計算轉化為表查與加法。16 世紀末，此法傳遍歐洲，天文家、工程師、商人皆受惠。</p><h4>📏 計算尺的勝利</h4><p>歐特雷德（William Oughtred, 1574-1660）發明計算尺——利用對數之性質，將數軸纏繞於木尺之上。滑動尺身，即得乘法結果。簡潔而高效。</p><h4>⚡ 三百年的標配</h4><p>計算尺成為工程師、科學家的必備工具。直至 1970 年代計算器問世，計算尺方逐漸退役。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 15:30 UTC</p>
     </div>
@@ -643,7 +715,7 @@
     <div class="card">
         <h3>📚 射影幾何的開始：透視與無窮遠點</h3>
         <p><strong>分類：</strong>文藝復興數學</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('帕波斯')">帕波斯</span><span class="figure-tag" onclick="showFigureModal('笛沙格')">笛沙格</span><span class="figure-tag" onclick="showFigureModal('帕斯卡爾')">帕斯卡爾</span></div>
+        <p><strong>人物：</strong>帕波斯, 笛沙格, 帕斯卡爾</p>
         <div class='card'><h3>🎨 透視的數學</h3><p>文藝復興藝術家研究透視法，無意中開創新幾何學。平行線在無窮遠處相交——此想法挑戰歐幾里得。</p><h4>🎨 藝術家的數學直覺</h4><p>達文西、布魯內萊斯基等大師研究如何在平面上畫立體物體。他們發現透視投影之規律，隱含新幾何學。</p><h4>🔷 射影幾何的誕生</h4><p>17 世紀法國數學家笛沙格（Girard Desargues）與帕斯卡爾（Blaise Pascal）系統化透視之數學。他們引入「無窮遠點」——假想在無窮遠處，平行線相交。</p><h4>🌟 新的幾何世界</h4><p>在射影幾何中，許多歐幾里得幾何之複雜定理得以簡化。此乃 19 世紀非歐幾何發展之先驅。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 16:00 UTC</p>
     </div>
@@ -652,7 +724,7 @@
     <div class="card">
         <h3>📚 π Day 特輯：圓周率的精進之旅</h3>
         <p><strong>分類：</strong>特別專題</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('馬欽')">馬欽</span><span class="figure-tag" onclick="showFigureModal('拉馬努金')">拉馬努金</span><span class="figure-tag" onclick="showFigureModal('貝利')">貝利</span></div>
+        <p><strong>人物：</strong>馬欽, 拉馬努金, 貝利</p>
         <div class='card'><h3>🥧 π 的傳奇</h3><p>3 月 14 日為 π Day。讓我們回顧 π 計算史上之里程碑，以及那些為之癡迷的天才。</p><h4>📊 從 3 到 3.14159...</h4><ul><li><strong>古埃及：</strong> π ≈ 3.16（約前 1600）</li><li><strong>古希臘：</strong> π ≈ 3.14（阿基米德）</li><li><strong>中國：</strong> π ≈ 3.1415926（祖沖之，500 年）</li><li><strong>17 世紀：</strong> π ≈ 3.14159265（馬欽）</li><li><strong>20 世紀：</strong> π ≈ 3.14159265358979...（超 1 億位）</li></ul><h4>🌟 現代奇人：拉馬努金</h4><p>印度天才拉馬努金（1887-1920）發現驚人的 π 計算公式，每項可得 8 位正確數字。其公式至今仍用於計算 π。</p><h4>⚡ 計算機時代</h4><p>現代超級計算機已算得 π 超過 10 兆位數字。此非為實用，而為展示人類對真理的無盡追求。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 16:30 UTC</p>
     </div>
@@ -661,7 +733,7 @@
     <div class="card">
         <h3>📚 微分學的應用：速度、切線、最值</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('牛頓')">牛頓</span><span class="figure-tag" onclick="showFigureModal('萊布尼茲')">萊布尼茲</span><span class="figure-tag" onclick="showFigureModal('柯西')">柯西</span></div>
+        <p><strong>人物：</strong>牛頓, 萊布尼茲, 柯西</p>
         <div class='card'><h3>📈 變化的秘密</h3><p>微分學研究變化率。物體速度、曲線切線、函數最值——皆可用導數描述。</p><h4>🚀 速度與導數</h4><p>運動物體之速度乃距離對時間之導數。若 s(t) 表位置，則 v(t) = ds/dt 為速度。加速度則為速度對時間之導數。</p><h4>📊 切線斜率</h4><p>曲線 y = f(x) 在點 (a, f(a)) 處之切線斜率即為導數 f'(a)。此簡單事實，連結幾何與微積分。</p><h4>🏔️ 最值問題</h4><p>函數之最大值、最小值出現於導數為零之處。此「費馬定理」廣泛應用於優化問題——如何以最少成本生產最多商品？</p><h4>⚡ 物理之語言</h4><p>牛頓運動定律 F = ma，其中 a 乃加速度，即速度之導數，即位移之二階導數。微分學遂成物理學之語言。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 17:00 UTC</p>
     </div>
@@ -670,7 +742,7 @@
     <div class="card">
         <h3>📚 積分學的應用：面積、體積、中心</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('阿基米德')">阿基米德</span><span class="figure-tag" onclick="showFigureModal('牛頓')">牛頓</span><span class="figure-tag" onclick="showFigureModal('萊布尼茲')">萊布尼茲</span></div>
+        <p><strong>人物：</strong>阿基米德, 牛頓, 萊布尼茲</p>
         <div class='card'><h3>📦 累積的和</h3><p>積分學與微分學互為逆運算。若微分求變化率，積分則求累積量——面積、體積、質量。</p><h4>📐 曲線下之面積</h4><p>曲線 y = f(x) 與 x 軸之間的面積如何求？古人用幾何近似，今日用積分精確計算：面積 = ∫f(x)dx。</p><h4>🧊 旋轉體體積</h4><p>曲線 y = f(x) 繞 x 軸旋轉一周，所得立體之體積可用圓盤法或殼層法計算。此乃積分應用之典型。</p><h4>⚖️ 物體中心</h4><p>非均勻物體之重心位置亦可由積分求得。質量、重心、轉動慣量，皆為積分計算。</p><h4>⚡ 物理與工程</h4><p>計算油箱容積、橋梁載重、飛機機翼升力——皆仰賴積分。微積分遂成工程學之基礎。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 17:30 UTC</p>
     </div>
@@ -679,7 +751,7 @@
     <div class="card">
         <h3>📚 微積分的嚴謹化：從直覺到嚴格</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('柯西')">柯西</span><span class="figure-tag" onclick="showFigureModal('魏爾施特拉斯')">魏爾施特拉斯</span><span class="figure-tag" onclick="showFigureModal('黎曼')">黎曼</span></div>
+        <p><strong>人物：</strong>柯西, 魏爾施特拉斯, 黎曼</p>
         <div class='card'><h3>🔬 數學的自我完善</h3><p>牛頓與萊布尼茲發明微積分時，理論不夠嚴謹。18 世紀末，數學家決心填補漏洞。</p><h4>❓ 無窮小的困惑</h4><p>何為 dx？是否為零？若是零，如何相除？若非零，何時變零？此疑惑困擾學者百年。</p><h4>🎯 柯西的極限</h4><p>19 世紀法國數學家柯西（Augustin-Louis Cauchy）提出「極限」概念，避開無窮小之模糊。導數定義為極限：f'(x) = lim[h→0] (f(x+h)-f(x))/h。</p><h4>✓ 魏爾施特拉斯的嚴格</h4><p>德國數學家魏爾施特拉斯（Karl Weierstrass）更進一步，用 ε-δ 方法精確定義極限。所有微積分結論得以嚴格証明。</p><h4>⚡ 牢固的基礎</h4><p>微積分遂從直覺之工具，上升為嚴格之科學。此乃 19 世紀數學之最大成就之一。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 18:00 UTC</p>
     </div>
@@ -688,7 +760,7 @@
     <div class="card">
         <h3>📚 無窮級數的探討：和與斂散</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('牛頓')">牛頓</span><span class="figure-tag" onclick="showFigureModal('歐拉')">歐拉</span><span class="figure-tag" onclick="showFigureModal('黎曼')">黎曼</span></div>
+        <p><strong>人物：</strong>牛頓, 歐拉, 黎曼</p>
         <div class='card'><h3>🔢 無窮和的謎</h3><p>1 + 1/2 + 1/4 + 1/8 + ... 等於多少？無窮項如何求和？何時收斂，何時發散？</p><h4>🎯 幾何級數</h4><p>首項 a，公比 r 之幾何級數，若 |r| < 1，則和為 a/(1-r)。例：1 + 1/2 + 1/4 + ... = 2。</p><h4>⚠️ 調和級數的陷阱</h4><p>1 + 1/2 + 1/3 + 1/4 + ... 雖然每項趨向零，卻發散至無窮。此違背直覺，因而著稱。</p><h4>🔍 收斂判別法</h4><p>如何判別級數斂散？有比值法、根值法、積分法等。不同級數需不同工具。</p><h4>📊 冪級數與函數</h4><p>冪級數 ∑aₙxⁿ 可表示函數。例：e^x = ∑(xⁿ/n!)，sin(x) = ∑((-1)ⁿ x^(2n+1)/(2n+1)!)。級數成為分析函數之工具。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 18:30 UTC</p>
     </div>
@@ -697,7 +769,7 @@
     <div class="card">
         <h3>📚 偏微分方程：從彈弦到波浪</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('達朗貝爾')">達朗貝爾</span><span class="figure-tag" onclick="showFigureModal('歐拉')">歐拉</span><span class="figure-tag" onclick="showFigureModal('傅立葉')">傅立葉</span></div>
+        <p><strong>人物：</strong>達朗貝爾, 歐拉, 傅立葉</p>
         <div class='card'><h3>🌊 多變數之變化</h3><p>若函數依賴多個變數，如何描述其變化？偏微分方程應運而生。</p><h4>🎸 彈弦振動</h4><p>18 世紀，達朗貝爾、歐拉等研究彈性弦之振動。弦上每點之位移 u(x,t) 滿足波動方程：∂²u/∂t² = c² ∂²u/∂x²。</p><h4>🌡️ 熱傳導</h4><p>溫度分佈 T(x,t) 如何隨時間與位置變化？傅立葉發展熱方程：∂T/∂t = α ∂²T/∂x²。此方程廣泛應用於物理、工程。</p><h4>🌊 波動方程之解</h4><p>波動方程之解為波函數，可表示駐波、行波等各式波動。此乃音樂、光學、量子力學之基礎。</p><h4>⚡ 現代應用</h4><p>偏微分方程應用於氣象預報、流體力學、電磁場等。解偏微分方程已成現代科技之關鍵。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 19:00 UTC</p>
     </div>
@@ -706,7 +778,7 @@
     <div class="card">
         <h3>📚 變分法與最優化：尋求最佳之路</h3>
         <p><strong>分類：</strong>微積分時代</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('伯努利')">伯努利</span><span class="figure-tag" onclick="showFigureModal('歐拉')">歐拉</span><span class="figure-tag" onclick="showFigureModal('拉格朗日')">拉格朗日</span></div>
+        <p><strong>人物：</strong>伯努利, 歐拉, 拉格朗日</p>
         <div class='card'><h3>🌉 最短之路</h3><p>變分法研究如何在眾多可能中，找到最優者。例：連接兩點之最短路徑乃直線，但若受約束呢？</p><h4>💡 經典問題：最速降線</h4><p>17 世紀末，伯努利提出難題：一物體沿曲線從 A 滑至 B，何種曲線使時間最短？答：擺線。此問題催生變分法。</p><h4>🔍 歐拉-拉格朗日方程</h4><p>歐拉與拉格朗日發展變分法。若要使某泛函（函數之函數）取極值，其解須滿足歐拉-拉格朗日方程。此乃變分法之心臟。</p><h4>⚡ 物理之應用</h4><p>牛頓力學、相對論、量子力學，皆可用變分原理推導。拉格朗日、哈密頓等大師用變分法統一物理。</p><h4>🎯 工程最優化</h4><p>設計飛機機翼以最小阻力，設置工廠以最低成本——皆可用變分法求解。此乃現代工程之秘密武器。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 19:30 UTC</p>
     </div>
@@ -715,7 +787,7 @@
     <div class="card">
         <h3>📚 集合論與無窮：康托爾的冒險</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('康托爾')">康托爾</span><span class="figure-tag" onclick="showFigureModal('克羅內克')">克羅內克</span><span class="figure-tag" onclick="showFigureModal('策梅洛')">策梅洛</span></div>
+        <p><strong>人物：</strong>康托爾, 克羅內克, 策梅洛</p>
         <div class='card'><h3>♾️ 無窮之大小</h3><p>何為無窮？無窮有大小之分嗎？康托爾大膽回答：有的。此開啟現代數學新紀元。</p><h4>🔢 可數無窮</h4><p>自然數集合 {1, 2, 3, ...} 無窮大，卻可與整數集、有理數集一一對應。此類無窮稱「可數無窮」，記作 ℵ₀。</p><h4>📏 不可數無窮</h4><p>實數集卻無法與自然數集一一對應。康托爾證明實數集「更大」——其無窮度為 c（連續統）。</p><h4>⚠️ 古人的反對</h4><p>老數學家克羅內克反對康托爾之說，聲稱「上帝創造自然數，其餘皆人為」。然康托爾堅持己見，最終理論勝利。</p><h4>🌟 無窮階級</h4><p>康托爾發現無窮並無最大。總有更大之無窮。此乃數學宇宙之深邃真理。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 20:00 UTC</p>
     </div>
@@ -724,7 +796,7 @@
     <div class="card">
         <h3>📚 邏輯學的數學化：從亞里斯多德到布爾</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('亞里斯多德')">亞里斯多德</span><span class="figure-tag" onclick="showFigureModal('布爾')">布爾</span><span class="figure-tag" onclick="showFigureModal('馮·諾依曼')">馮·諾依曼</span></div>
+        <p><strong>人物：</strong>亞里斯多德, 布爾, 馮·諾依曼</p>
         <div class='card'><h3>🔍 真與假的代數</h3><p>邏輯非哲學專利，亦可數學化。布爾發現：命題與邏輯運算可用代數方程表示。</p><h4>🏛️ 亞里斯多德的三段論</h4><p>古希臘哲學家亞里斯多德建立演繹邏輯。「所有人都會死，蘇格拉底是人，故蘇格拉底會死」——此最著名之三段論。</p><h4>🔢 布爾代數</h4><p>19 世紀英國數學家喬治·布爾（George Boole）發現邏輯可用符號表示。真/假對應 1/0，與/或/非對應 ×/+/¯。邏輯命題變成代數方程。</p><h4>💻 計算機之基礎</h4><p>布爾代數成為計算機設計之基礎。0 與 1，真與假，正與負——皆可用電壓高低表示。布爾之理論使計算機成為可能。</p><h4>⚡ 現代邏輯</h4><p>集合論與邏輯相融，衍生一階邏輯、模態邏輯等。邏輯學遂成數學基礎理論之重要分支。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 20:30 UTC</p>
     </div>
@@ -733,7 +805,7 @@
     <div class="card">
         <h3>📚 群論與抽象代數：對稱的代數</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('伽羅瓦')">伽羅瓦</span><span class="figure-tag" onclick="showFigureModal('阿貝爾')">阿貝爾</span><span class="figure-tag" onclick="showFigureModal('克萊因')">克萊因</span></div>
+        <p><strong>人物：</strong>伽羅瓦, 阿貝爾, 克萊因</p>
         <div class='card'><h3>🔄 對稱性的語言</h3><p>何為群？最簡單的定義：具某種結構之對稱操作的集合。群論研究此結構。</p><h4>🔐 伽羅瓦的天才</h4><p>19 世紀法國天才伽羅瓦（Évariste Galois）年僅 20 歲即殞落，卻留下深邃理論。他用群論解決千年難題：五次以上方程無通用根式解。</p><h4>📐 群的四個性質</h4><p>群須滿足：封閉性、結合律、單位元、逆元。簡單規則，卻蘊藏深意。</p><h4>🌟 例子</h4><p>整數加法構成群，實數非零乘法構成群，幾何旋轉亦構成群。群論統一此眾多現象。</p><h4>⚡ 物理與化學</h4><p>分子對稱性、晶體結構、基本粒子——皆以群論描述。群論成為現代物理之語言。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 21:00 UTC</p>
     </div>
@@ -742,7 +814,7 @@
     <div class="card">
         <h3>📚 拓撲學的誕生：柔性幾何</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('歐拉')">歐拉</span><span class="figure-tag" onclick="showFigureModal('龐加萊')">龐加萊</span><span class="figure-tag" onclick="showFigureModal('豪斯多夫')">豪斯多夫</span></div>
+        <p><strong>人物：</strong>歐拉, 龐加萊, 豪斯多夫</p>
         <div class='card'><h3>🔗 不用測量的幾何</h3><p>拓撲學研究幾何圖形在連續變形下不變之性質。不在乎距離、角度、面積，只在乎連通性。</p><h4>🌉 七橋問題</h4><p>18 世紀普魯士城鎮柯尼斯堡有七座橋。能否一次過遊歷所有橋，每橋恰過一次？歐拉證明不能，並創立圖論——拓撲學之雛形。</p><h4>🍩 甲殼形與球面</h3><p>甲殼形有一孔，球面無孔。二者拓撲性質不同。此稱為「虧數」——描述曲面有多少孔。</p><h4>🌐 龐加萊猜想</h4><p>龐加萊提出難題：三維球面是否唯一之簡單連通三維曲面？此問題困擾數學界百年，直至 2003 年才被佩雷爾曼証明。</p><h4>⚡ 現代應用</h4><p>拓撲學應用於數據分析、蛋白質結構研究、宇宙論等。看似抽象的拓撲學，實則影響深遠。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 21:30 UTC</p>
     </div>
@@ -751,7 +823,7 @@
     <div class="card">
         <h3>📚 非歐幾何的發現：打破歐幾里得的壟斷</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('羅巴切夫斯基')">羅巴切夫斯基</span><span class="figure-tag" onclick="showFigureModal('高斯')">高斯</span><span class="figure-tag" onclick="showFigureModal('黎曼')">黎曼</span></div>
+        <p><strong>人物：</strong>羅巴切夫斯基, 高斯, 黎曼</p>
         <div class='card'><h3>📐 另一個世界</h3><p>歐幾里得第五公設（平行線公設）困擾數學家兩千年。能否推翻之？答案出人意料。</p><h4>❓ 第五公設之謎</h4><p>過直線外一點，能否作多條與之不相交之直線？歐幾里得說只有一條。但若改為「有多條」或「無條」呢？</p><h4>🔴 雙曲幾何</h4><p>19 世紀俄國數學家羅巴切夫斯基（Nikolai Lobachevsky）與匈牙利人波蘭（János Bolyai）獨立發現：若允許多條平行線，則產生全新幾何——雙曲幾何。此幾何中，三角形內角和小於 180°。</p><h4>⚪ 球面幾何</h4><p>另一種非歐幾何為球面幾何。地球表面上，「直線」乃大圓，三角形內角和大於 180°。</p><h4>⚡ 相對論之基礎</h4><p>愛因斯坦之廣義相對論採用黎曼幾何（非歐幾何之推廣）描述時空彎曲。非歐幾何不再是數學遊戲，而成物理必需。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 22:00 UTC</p>
     </div>
@@ -760,7 +832,7 @@
     <div class="card">
         <h3>📚 希爾伯特的 23 個問題：20 世紀的指南</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('希爾伯特')">希爾伯特</span><span class="figure-tag" onclick="showFigureModal('哥德爾')">哥德爾</span><span class="figure-tag" onclick="showFigureModal('萊布尼茲')">萊布尼茲</span></div>
+        <p><strong>人物：</strong>希爾伯特, 哥德爾, 萊布尼茲</p>
         <div class='card'><h3>❓ 世紀之問</h3><p>1900 年巴黎國際數學家大會，德國數學家希爾伯特提出 23 個問題，指引整個 20 世紀數學研究。</p><h4>🎯 問題的影響</h4><p>這 23 問題涵蓋數學各領域：邏輯基礎、實數理論、群論、幾何學等。許多問題已解決，有些仍未竟全功。</p><h4>✅ 已解決之例</h4><ul><li>第 3 問：多面體體積相等是否等距可分？（已証實）</li><li>第 7 問：實數列是否存在超越數？（已証實）</li><li>第 13 問：能否用三元有理函數解七次一般方程？（已否定）</li></ul><h4>❌ 未解之例</h4><ul><li>第 6 問：物理公理化（現代仍未完全解決）</li><li>第 8 問：黎曼假設（千禧問題之一，獎金 100 萬美元）</li></ul><h4>⚡ 啟示</h4><p>希爾伯特問題展示數學之活力與深度。每一問題解決，皆帶來新洞見、新方向。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 22:30 UTC</p>
     </div>
@@ -769,7 +841,7 @@
     <div class="card">
         <h3>📚 數學危機與重建：從直覺到嚴謹</h3>
         <p><strong>分類：</strong>現代數學基礎</p>
-        <div class="timeline-figures"><span class="figure-tag" onclick="showFigureModal('康托爾')">康托爾</span><span class="figure-tag" onclick="showFigureModal('羅素')">羅素</span><span class="figure-tag" onclick="showFigureModal('策梅洛')">策梅洛</span></div>
+        <p><strong>人物：</strong>康托爾, 羅素, 策梅洛</p>
         <div class='card'><h3>⚠️ 悖論的威脅</h3><p>19 世紀末，數學基礎遭遇嚴重危機。集合論中出現悖論，動搖了整個體系。</p><h4>🔴 羅素悖論</h4><p>設 R 為所有不包含自身之集合的集合。問：R 是否包含自身？若包含，則违反定義；若不包含，亦违反定義。矛盾！</p><h4>🛠️ 集合論的改革</h4><p>策梅洛與弗倫克爾等發展「集合論公理系統」（ZF 公理），避免悖論產生。新系統雖限制性強，卻保證一致性。</p><h4>📚 數學的基礎重建</h4><p>數學家回到源頭，以公理化方法重建整個數學體系。從最基礎的邏輯與集合論開始，層層向上建構。</p><h4>⚡ 新的認識</h4><p>此危機使數學家領悟：數學非先天之真理，而是人為之結構。只要系統一致，即為有效。相對性取代絕對性。</p></div>
         <p style="font-size: 0.85rem; color: #999; margin-top: 1rem;">更新時間：2026-03-01 23:00 UTC</p>
     </div>
@@ -805,40 +877,94 @@
         });
     </script>
 
-    <!-- Figure Info Modal -->
-    <div id="figureModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeFigureModal()">&times;</button>
-            <h2 class="modal-title" id="modalTitle">人物</h2>
-            <p class="modal-text" id="modalText"></p>
-        </div>
-    </div>
-
     <script>
-        const figuresData = {"商高": {"name": "商高", "desc": ""}, "畢達哥拉斯": {"name": "畢達哥拉斯", "desc": ""}, "歐幾里得": {"name": "歐幾里得", "desc": ""}, "阿基米德": {"name": "阿基米德", "desc": ""}, "劉徽": {"name": "劉徽", "desc": ""}, "祖沖之": {"name": "祖沖之", "desc": ""}, "張蒼": {"name": "張蒼", "desc": ""}, "花拉子米": {"name": "花拉子米", "desc": ""}, "卡爾達諾": {"name": "卡爾達諾", "desc": ""}, "海倫": {"name": "海倫", "desc": ""}, "印度數學家": {"name": "印度數學家", "desc": ""}, "阿拉伯傳播者": {"name": "阿拉伯傳播者", "desc": ""}, "歐洲接受者": {"name": "歐洲接受者", "desc": ""}, "邦貝利": {"name": "邦貝利", "desc": ""}, "高斯": {"name": "高斯", "desc": ""}, "花拉子密": {"name": "花拉子密", "desc": ""}, "斐波那契": {"name": "斐波那契", "desc": ""}, "李奧納多": {"name": "李奧納多", "desc": ""}, "韋達": {"name": "韋達", "desc": ""}, "喜帕恰斯": {"name": "喜帕恰斯", "desc": ""}, "第谷": {"name": "第谷", "desc": ""}, "納皮爾": {"name": "納皮爾", "desc": ""}, "歐特雷德": {"name": "歐特雷德", "desc": ""}, "帕斯卡": {"name": "帕斯卡", "desc": ""}, "帕波斯": {"name": "帕波斯", "desc": ""}, "笛沙格": {"name": "笛沙格", "desc": ""}, "帕斯卡爾": {"name": "帕斯卡爾", "desc": ""}, "馬欽": {"name": "馬欽", "desc": ""}, "拉馬努金": {"name": "拉馬努金", "desc": ""}, "貝利": {"name": "貝利", "desc": ""}, "牛頓": {"name": "牛頓", "desc": ""}, "萊布尼茲": {"name": "萊布尼茲", "desc": ""}, "柯西": {"name": "柯西", "desc": ""}, "魏爾施特拉斯": {"name": "魏爾施特拉斯", "desc": ""}, "黎曼": {"name": "黎曼", "desc": ""}, "歐拉": {"name": "歐拉", "desc": ""}, "達朗貝爾": {"name": "達朗貝爾", "desc": ""}, "傅立葉": {"name": "傅立葉", "desc": ""}, "伯努利": {"name": "伯努利", "desc": ""}, "拉格朗日": {"name": "拉格朗日", "desc": ""}, "康托爾": {"name": "康托爾", "desc": ""}, "克羅內克": {"name": "克羅內克", "desc": ""}, "策梅洛": {"name": "策梅洛", "desc": ""}, "亞里斯多德": {"name": "亞里斯多德", "desc": ""}, "布爾": {"name": "布爾", "desc": ""}, "馮·諾依曼": {"name": "馮·諾依曼", "desc": ""}, "伽羅瓦": {"name": "伽羅瓦", "desc": ""}, "阿貝爾": {"name": "阿貝爾", "desc": ""}, "克萊因": {"name": "克萊因", "desc": ""}, "龐加萊": {"name": "龐加萊", "desc": ""}, "豪斯多夫": {"name": "豪斯多夫", "desc": ""}, "羅巴切夫斯基": {"name": "羅巴切夫斯基", "desc": ""}, "希爾伯特": {"name": "希爾伯特", "desc": ""}, "哥德爾": {"name": "哥德爾", "desc": ""}, "羅素": {"name": "羅素", "desc": ""}, "劉徽（約 220-280）": {"name": "劉徽（約 220-280）", "desc": "中國古代數學家。著《九章算術注》，創造割圓法計算圓周率，得 π ≈ 3.14159。"}, "祖沖之（429-500）": {"name": "祖沖之（429-500）", "desc": "南北朝數學家、天文學家。將圓周率精算至小數點後七位，1000 年間無人超越。"}, "李冶（1192-1279）": {"name": "李冶（1192-1279）", "desc": "元代數學家。著《測圓海鏡》，開創中國代數學先河，創「天元術」。"}, "歐幾里得（約 前 325-前 265）": {"name": "歐幾里得（約 前 325-前 265）", "desc": "古希臘數學家。著《幾何原本》，確立公理化方法，影響深遠。"}, "牛頓（1643-1727）": {"name": "牛頓（1643-1727）", "desc": "英國物理學家、數學家。與萊布尼茲各自獨立創立微積分，推動科學革命。"}, "歐拉（1707-1783）": {"name": "歐拉（1707-1783）", "desc": "瑞士數學家。多產至極，涉獵數學各領域。著作 886 篇，迄今仍有新編。"}, "斐波那契的推廣": {"name": "斐波那契的推廣", "desc": "13 世紀義大利商人李奧納多·斐波那契著《算盤書》，將阿拉伯數字與方法傳入歐洲。雖遭教會反對，終究勢不可擋。"}};
+        const articlesData = [{"title": "商高定理與勾股定理：中西之美", "category": "古代數學", "figures": ["商高", "畢達哥拉斯", "歐幾里得"], "tags": ["代數"]}, {"title": "圓周率之謎：阿基米德與割圓法", "category": "古代數學", "figures": ["阿基米德", "劉徽", "祖沖之"], "tags": ["代數", "幾何"]}, {"title": "代數學的起源：九章算術 vs 花拉子米", "category": "古代數學", "figures": ["張蒼", "花拉子米", "卡爾達諾"], "tags": ["代數"]}, {"title": "幾何學的分岔：歐幾里得與實用之學", "category": "古代數學", "figures": ["歐幾里得", "劉徽", "海倫"], "tags": ["代數", "幾何"]}, {"title": "古代計算工具：算盤與籌算的智慧", "category": "古代數學", "figures": ["暫無具體人物", "計算工具發明者"], "tags": ["代數", "計算方法"]}, {"title": "零的發明：東方的偉大禮物", "category": "古代數學", "figures": ["印度數學家", "阿拉伯傳播者", "歐洲接受者"], "tags": ["代數", "數論"]}, {"title": "負數的認識：從違背直覺到接納真理", "category": "古代數學", "figures": ["劉徽", "卡爾達諾", "邦貝利"], "tags": ["代數", "數論"]}, {"title": "複數的探索：從被否認到被承認", "category": "古代與中世紀數學", "figures": ["卡爾達諾", "邦貝利", "高斯"], "tags": ["數論"]}, {"title": "伊斯蘭黃金時代的數學", "category": "中世紀數學", "figures": ["花拉子米", "花拉子密", "歐幾里得"], "tags": ["數學史"]}, {"title": "阿拉伯數字與算法的傳入", "category": "中世紀數學", "figures": ["斐波那契", "花拉子米", "李奧納多"], "tags": ["數學史"]}, {"title": "代數學的進化：從文言到符號", "category": "文藝復興數學", "figures": ["卡爾達諾", "邦貝利", "韋達"], "tags": ["代數"]}, {"title": "三角函數的誕生：從天文到數學", "category": "文藝復興數學", "figures": ["喜帕恰斯", "第谷", "納皮爾"], "tags": ["三角學"]}, {"title": "對數與計算尺的奇蹟", "category": "文藝復興數學", "figures": ["納皮爾", "歐特雷德", "帕斯卡"], "tags": ["計算方法"]}, {"title": "射影幾何的開始：透視與無窮遠點", "category": "文藝復興數學", "figures": ["帕波斯", "笛沙格", "帕斯卡爾"], "tags": ["幾何"]}, {"title": "π Day 特輯：圓周率的精進之旅", "category": "特別專題", "figures": ["馬欽", "拉馬努金", "貝利"], "tags": ["幾何"]}, {"title": "微分學的應用：速度、切線、最值", "category": "微積分時代", "figures": ["牛頓", "萊布尼茲", "柯西"], "tags": ["微積分"]}, {"title": "積分學的應用：面積、體積、中心", "category": "微積分時代", "figures": ["阿基米德", "牛頓", "萊布尼茲"], "tags": ["微積分"]}, {"title": "微積分的嚴謹化：從直覺到嚴格", "category": "微積分時代", "figures": ["柯西", "魏爾施特拉斯", "黎曼"], "tags": ["微積分"]}, {"title": "無窮級數的探討：和與斂散", "category": "微積分時代", "figures": ["牛頓", "歐拉", "黎曼"], "tags": ["微積分"]}, {"title": "偏微分方程：從彈弦到波浪", "category": "微積分時代", "figures": ["達朗貝爾", "歐拉", "傅立葉"], "tags": ["代數", "微積分"]}, {"title": "變分法與最優化：尋求最佳之路", "category": "微積分時代", "figures": ["伯努利", "歐拉", "拉格朗日"], "tags": ["微積分"]}, {"title": "集合論與無窮：康托爾的冒險", "category": "現代數學基礎", "figures": ["康托爾", "克羅內克", "策梅洛"], "tags": ["代數", "抽象代數"]}, {"title": "邏輯學的數學化：從亞里斯多德到布爾", "category": "現代數學基礎", "figures": ["亞里斯多德", "布爾", "馮·諾依曼"], "tags": ["代數", "抽象代數"]}, {"title": "群論與抽象代數：對稱的代數", "category": "現代數學基礎", "figures": ["伽羅瓦", "阿貝爾", "克萊因"], "tags": ["代數", "抽象代數"]}, {"title": "拓撲學的誕生：柔性幾何", "category": "現代數學基礎", "figures": ["歐拉", "龐加萊", "豪斯多夫"], "tags": ["代數", "幾何", "拓撲"]}, {"title": "非歐幾何的發現：打破歐幾里得的壟斷", "category": "現代數學基礎", "figures": ["羅巴切夫斯基", "高斯", "黎曼"], "tags": ["代數", "幾何"]}, {"title": "希爾伯特的 23 個問題：20 世紀的指南", "category": "現代數學基礎", "figures": ["希爾伯特", "哥德爾", "萊布尼茲"], "tags": ["代數", "現代基礎"]}, {"title": "數學危機與重建：從直覺到嚴謹", "category": "現代數學基礎", "figures": ["康托爾", "羅素", "策梅洛"], "tags": ["代數", "現代基礎"]}];
+        let currentKnowledgeFilter = 'all';
+        let currentFigureFilter = 'all';
 
-        function showFigureModal(name) {
-            const modal = document.getElementById('figureModal');
-            const title = document.getElementById('modalTitle');
-            const text = document.getElementById('modalText');
-            
-            if (figuresData[name]) {
-                title.textContent = '📖 ' + name;
-                text.textContent = figuresData[name].desc || '此人物資料待補。';
-                modal.classList.add('show');
-            }
+        function renderArticles() {
+            const container = document.getElementById('articlesContainer');
+            container.innerHTML = '';
+            let count = 0;
+
+            articlesData.forEach(article => {
+                const matchKnowledge = currentKnowledgeFilter === 'all' || article.tags.includes(currentKnowledgeFilter);
+                const matchFigure = currentFigureFilter === 'all' || article.figures.includes(currentFigureFilter);
+
+                if (matchKnowledge && matchFigure) {
+                    count++;
+                    const card = document.createElement('div');
+                    card.className = 'article-card visible';
+                    
+                    const knowledgeTags = article.tags.map(t => 
+                        `<span class="tag tag-knowledge" onclick="filterKnowledge('${t}')">${t}</span>`
+                    ).join('');
+                    
+                    const figureTags = article.figures.map(f => 
+                        `<span class="tag tag-figure" onclick="filterFigure('${f}')">${f}</span>`
+                    ).join('');
+
+                    card.innerHTML = `
+                        <h4>📚 ${article.title}</h4>
+                        <p class="article-meta"><strong>分類：</strong> ${article.category}</p>
+                        <div class="article-tags">
+                            ${knowledgeTags}
+                            ${figureTags}
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+
+            document.getElementById('resultCount').textContent = count;
+            document.getElementById('resultTitle').textContent = 
+                (currentKnowledgeFilter !== 'all' ? `知識：${currentKnowledgeFilter}` : 
+                 currentFigureFilter !== 'all' ? `人物：${currentFigureFilter}` : 
+                 '📖 全部文章') + ` (${count})`;
         }
 
-        function closeFigureModal() {
-            document.getElementById('figureModal').classList.remove('show');
+        function filterKnowledge(tag) {
+            currentKnowledgeFilter = tag;
+            currentFigureFilter = 'all';
+            updateButtonStates();
+            renderArticles();
         }
 
-        // 點擊 modal 背景關閉
-        document.getElementById('figureModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('show');
-            }
+        function filterFigure(fig) {
+            currentFigureFilter = fig;
+            currentKnowledgeFilter = 'all';
+            updateButtonStates();
+            renderArticles();
+        }
+
+        function updateButtonStates() {
+            document.querySelectorAll('.filter-btn[data-type="knowledge"]').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.value === currentKnowledgeFilter) btn.classList.add('active');
+            });
+            document.querySelectorAll('.filter-btn[data-type="figure"]').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.value === currentFigureFilter) btn.classList.add('active');
+            });
+        }
+
+        document.querySelectorAll('.filter-btn[data-type="knowledge"]').forEach(btn => {
+            btn.addEventListener('click', () => filterKnowledge(btn.dataset.value));
         });
+
+        document.querySelectorAll('.filter-btn[data-type="figure"]').forEach(btn => {
+            btn.addEventListener('click', () => filterFigure(btn.dataset.value));
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            currentKnowledgeFilter = 'all';
+            currentFigureFilter = 'all';
+            updateButtonStates();
+            renderArticles();
+        });
+
+        updateButtonStates();
+        renderArticles();
     </script>
 </body>
 </html>
