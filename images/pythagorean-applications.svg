@@ -1,0 +1,157 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="groundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 天空 -->
+  <rect x="0" y="0" width="1200" height="450" fill="url(#skyGradient)"/>
+  
+  <!-- 地面 -->
+  <rect x="0" y="450" width="1200" height="350" fill="url(#groundGradient)"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="40" font-size="28" font-weight="bold" text-anchor="middle" fill="#fff" 
+        text-shadow="2px 2px 4px rgba(0,0,0,0.5)">
+    商高定理的應用：古代測量與建築
+  </text>
+  
+  <!-- ========== 場景 1：建築測量 ========== -->
+  <!-- 建築物 -->
+  <rect x="100" y="300" width="80" height="150" fill="#8B7355" stroke="#000" stroke-width="2"/>
+  
+  <!-- 門窗 -->
+  <rect x="110" y="320" width="20" height="30" fill="#FFA500" stroke="#000" stroke-width="1"/>
+  <rect x="140" y="320" width="20" height="30" fill="#FFA500" stroke="#000" stroke-width="1"/>
+  <rect x="110" y="370" width="20" height="30" fill="#FFA500" stroke="#000" stroke-width="1"/>
+  <rect x="140" y="370" width="20" height="30" fill="#FFA500" stroke="#000" stroke-width="1"/>
+  
+  <!-- 屋頂 -->
+  <polygon points="100,300 140,250 180,300" fill="#8B4513"/>
+  
+  <!-- 測量線 -->
+  <!-- 高（勾） -->
+  <line x1="190" y1="300" x2="190" y2="450" stroke="#FF0000" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="210" y="380" font-size="12" font-weight="bold" fill="#FF0000">
+    高度 (勾)
+  </text>
+  
+  <!-- 地面距離（股） -->
+  <line x1="100" y1="460" x2="280" y2="460" stroke="#0066FF" stroke-width="2"/>
+  <text x="190" y="485" font-size="12" font-weight="bold" text-anchor="middle" fill="#0066FF">
+    地面距離 (股)
+  </text>
+  
+  <!-- 測量繩（弦） -->
+  <line x1="190" y1="300" x2="280" y2="460" stroke="#FF6600" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="250" y="360" font-size="11" font-weight="bold" fill="#FF6600" transform="rotate(-37 250 360)">
+    測量繩 (弦)
+  </text>
+  
+  <!-- 直角符號 -->
+  <rect x="185" y="450" width="10" height="10" fill="none" stroke="#000" stroke-width="1"/>
+  
+  <!-- 公式 -->
+  <rect x="80" y="520" width="220" height="50" fill="#FFFF99" stroke="#CC9900" stroke-width="2" rx="5"/>
+  <text x="190" y="535" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">
+    高² + 距² = 繩²
+  </text>
+  <text x="190" y="555" font-size="11" text-anchor="middle" fill="#333">
+    可測建築高度
+  </text>
+  
+  <!-- ========== 場景 2：田地測量 ========== -->
+  <!-- 田地 -->
+  <polygon points="400,420 550,450 500,580 350,550" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+  
+  <!-- 直角標記 -->
+  <rect x="395" y="415" width="10" height="10" fill="none" stroke="#000" stroke-width="1"/>
+  
+  <!-- 測量 -->
+  <line x1="400" y1="420" x2="550" y2="450" stroke="#FF6600" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="400" y1="420" x2="400" y2="550" stroke="#0066FF" stroke-width="2"/>
+  <line x1="400" y1="550" x2="550" y2="450" stroke="#FF0000" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <text x="430" y="490" font-size="11" font-weight="bold" fill="#FF6600">邊 c</text>
+  <text x="380" y="490" font-size="11" font-weight="bold" fill="#0066FF">邊 a</text>
+  <text x="460" y="575" font-size="11" font-weight="bold" fill="#FF0000">邊 b</text>
+  
+  <!-- 田地說明 -->
+  <rect x="380" y="605" width="170" height="40" fill="#CCFFCC" stroke="#00CC00" stroke-width="1" rx="3"/>
+  <text x="465" y="625" font-size="11" font-weight="bold" text-anchor="middle" fill="#000">
+    確定田地面積與邊界
+  </text>
+  
+  <!-- ========== 場景 3：防禦設施 ========== -->
+  <!-- 城牆 -->
+  <line x1="700" y1="420" x2="700" y2="500" stroke="#666" stroke-width="4"/>
+  
+  <!-- 護城河 -->
+  <path d="M 700 500 Q 750 520 800 500" stroke="#4169E1" stroke-width="3" fill="none"/>
+  
+  <!-- 箭塔測距 -->
+  <circle cx="700" cy="420" r="8" fill="#FF0000"/>
+  
+  <!-- 目標 -->
+  <circle cx="820" cy="520" r="6" fill="#FFD700"/>
+  
+  <!-- 測距線 -->
+  <line x1="700" y1="420" x2="820" y2="520" stroke="#FF6600" stroke-width="2" stroke-dasharray="4,4"/>
+  
+  <!-- 距離線 -->
+  <line x1="700" y1="500" x2="820" y2="500" stroke="#0066FF" stroke-width="2"/>
+  <line x1="700" y1="500" x2="700" y2="420" stroke="#FF0000" stroke-width="2"/>
+  
+  <text x="760" y="510" font-size="10" font-weight="bold" fill="#0066FF">水平距離</text>
+  <text x="680" y="460" font-size="10" font-weight="bold" fill="#FF0000">垂直高</text>
+  <text x="775" y="455" font-size="10" font-weight="bold" fill="#FF6600">射程</text>
+  
+  <!-- 防禦說明 -->
+  <rect x="680" y="545" width="140" height="40" fill="#FFE4B5" stroke="#FF8C00" stroke-width="1" rx="3"/>
+  <text x="750" y="565" font-size="11" font-weight="bold" text-anchor="middle" fill="#000">
+    計算投石機射程
+  </text>
+  
+  <!-- ========== 古代應用列表 ========== -->
+  <g id="applications">
+    <!-- 背景 -->
+    <rect x="900" y="80" width="280" height="240" fill="#F5F5F5" stroke="#999" stroke-width="1" rx="5" opacity="0.95"/>
+    
+    <!-- 標題 -->
+    <text x="1040" y="105" font-size="13" font-weight="bold" text-anchor="middle" fill="#000">
+      古代應用範例
+    </text>
+    
+    <!-- 應用列表 -->
+    <text x="920" y="135" font-size="11" fill="#000">
+      <tspan x="920" dy="0">📐 建築物高度測量</tspan>
+      <tspan x="920" dy="25">🌾 田地面積測量</tspan>
+      <tspan x="920" dy="25">⛩️ 寺廟屋頂設計</tspan>
+      <tspan x="920" dy="25">🎯 軍事防禦設施</tspan>
+      <tspan x="920" dy="25">🌊 河道寬度測量</tspan>
+      <tspan x="920" dy="25">🛣️ 道路規劃</tspan>
+    </text>
+  </g>
+  
+  <!-- ========== 底部歷史說明 ========== -->
+  <rect x="50" y="680" width="1100" height="100" fill="#FFFACD" stroke="#DAA520" stroke-width="2" rx="5"/>
+  <text x="600" y="705" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">
+    【歷史小知識】
+  </text>
+  <text x="600" y="730" font-size="11" text-anchor="middle" fill="#333">
+    商高（周代數學家）於西元前 1100 年左右已知「勾三股四弦五」之勾股關係，
+  </text>
+  <text x="600" y="750" font-size="11" text-anchor="middle" fill="#333">
+    比古希臘畢達哥拉斯早 600 年！中國古人用此理論用於測量、建築、軍事，實踐性強。
+  </text>
+  <text x="600" y="770" font-size="11" text-anchor="middle" fill="#333">
+    西方則注重證明，由歐幾里得《幾何原本》正式載入幾何學體系，成為現代數學基石。
+  </text>
+</svg>

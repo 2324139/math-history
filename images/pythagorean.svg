@@ -1,0 +1,107 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1200" height="700" fill="#f9f9f9"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="40" font-size="32" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    勾股定理：東西數學之美 | Pythagorean Theorem: East & West
+  </text>
+  
+  <!-- 分隔線 -->
+  <line x1="600" y1="60" x2="600" y2="600" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- ========== 左側：中國傳統表示 ========== -->
+  <g id="chinese">
+    <!-- 標題 -->
+    <text x="300" y="100" font-size="18" font-weight="bold" text-anchor="middle" fill="#0066cc">
+      中國：勾三股四弦五
+    </text>
+    <text x="300" y="125" font-size="13" text-anchor="middle" fill="#666">
+      (3-4-5 Triangle)
+    </text>
+    
+    <!-- 三角形 -->
+    <polygon points="100,500 400,500 100,200" fill="#e6f2ff" stroke="#0066cc" stroke-width="3"/>
+    
+    <!-- 邊標記 -->
+    <!-- 股 (base) -->
+    <line x1="100" y1="520" x2="400" y2="520" stroke="#0066cc" stroke-width="2"/>
+    <text x="250" y="550" font-size="14" font-weight="bold" text-anchor="middle" fill="#0066cc">
+      股 (base) = 4
+    </text>
+    
+    <!-- 勾 (height) -->
+    <line x1="80" y1="200" x2="80" y2="500" stroke="#0066cc" stroke-width="2"/>
+    <text x="40" y="350" font-size="14" font-weight="bold" text-anchor="middle" fill="#0066cc">
+      勾 = 3
+    </text>
+    
+    <!-- 弦 (hypotenuse) -->
+    <line x1="100" y1="200" x2="400" y2="500" stroke="#cc0000" stroke-width="3"/>
+    <text x="270" y="340" font-size="13" font-weight="bold" fill="#cc0000" transform="rotate(-37 270 340)">
+      弦 = 5
+    </text>
+    
+    <!-- 直角符號 -->
+    <rect x="100" y="480" width="20" height="20" fill="none" stroke="#000" stroke-width="1.5"/>
+    
+    <!-- 公式 -->
+    <rect x="150" y="280" width="300" height="50" fill="#ffff99" stroke="#cc9900" stroke-width="2" rx="8"/>
+    <text x="300" y="310" font-size="18" font-weight="bold" text-anchor="middle" fill="#000">
+      3² + 4² = 5²
+    </text>
+    
+    <!-- 驗證 -->
+    <rect x="150" y="340" width="300" height="40" fill="#ccffcc" stroke="#00cc00" stroke-width="2" rx="8"/>
+    <text x="300" y="365" font-size="16" font-weight="bold" text-anchor="middle" fill="#006600">
+      9 + 16 = 25 ✓
+    </text>
+  </g>
+  
+  <!-- ========== 右側：西方幾何證明 ========== -->
+  <g id="western">
+    <!-- 標題 -->
+    <text x="900" y="100" font-size="18" font-weight="bold" text-anchor="middle" fill="#cc0000">
+      西方：幾何證明法
+    </text>
+    <text x="900" y="125" font-size="13" text-anchor="middle" fill="#666">
+      (Geometric Proof)
+    </text>
+    
+    <!-- 大正方形（邊長 5）-->
+    <rect x="700" y="200" width="400" height="400" fill="none" stroke="#000" stroke-width="2"/>
+    
+    <!-- 四個三角形 -->
+    <!-- 左下 -->
+    <polygon points="700,200 700,600 760,600" fill="#b3d9ff" stroke="#0066cc" stroke-width="1.5" opacity="0.7"/>
+    <!-- 右下 -->
+    <polygon points="1100,200 1100,600 1040,600" fill="#b3d9ff" stroke="#0066cc" stroke-width="1.5" opacity="0.7"/>
+    <!-- 右上 -->
+    <polygon points="1100,200 1040,200 1100,260" fill="#b3d9ff" stroke="#0066cc" stroke-width="1.5" opacity="0.7"/>
+    <!-- 左上 -->
+    <polygon points="700,200 760,200 700,260" fill="#b3d9ff" stroke="#0066cc" stroke-width="1.5" opacity="0.7"/>
+    
+    <!-- 中央小正方形 -->
+    <rect x="760" y="340" width="140" height="140" fill="#ffcccc" stroke="#cc0000" stroke-width="2" opacity="0.6"/>
+    
+    <!-- 邊長標記 -->
+    <text x="875" y="170" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">c</text>
+    <text x="720" y="410" font-size="12" font-weight="bold" fill="#000">a</text>
+    <text x="900" y="620" font-size="12" font-weight="bold" fill="#000">b</text>
+    
+    <!-- 公式 -->
+    <rect x="700" y="650" width="400" height="40" fill="#ffffcc" stroke="#cc9900" stroke-width="2" rx="8"/>
+    <text x="900" y="675" font-size="16" font-weight="bold" text-anchor="middle" fill="#000">
+      a² + b² = c²
+    </text>
+  </g>
+  
+  <!-- ========== 底部說明 ========== -->
+  <rect x="50" y="610" width="1100" height="70" fill="#f0f0f0" stroke="#999" stroke-width="1" rx="5"/>
+  <text x="600" y="635" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">
+    中西古人各顯其能：中國自商周已知此理，用之於測量建築；
+  </text>
+  <text x="600" y="660" font-size="13" text-anchor="middle" fill="#333">
+    西方至畢達哥拉斯方得証明。千年後，祖沖之精算圓周率，與阿基米德分庭抗禮矣！
+  </text>
+</svg>
